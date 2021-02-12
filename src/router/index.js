@@ -67,13 +67,13 @@ export const constantRoutes = [{
     },
     children: [{
       path: '/info/infoShow',
-        name: 'InfoShow',
-        component: () => import('@/views/info/infoShow/index'),
-        meta: {
-          title: '详细信息',
-          icon: 'dashboard'
-        },
-    },{
+      name: 'InfoShow',
+      component: () => import('@/views/info/infoShow/index'),
+      meta: {
+        title: '详细信息',
+        icon: 'dashboard'
+      },
+    }, {
       path: '/info/ChangePassword',
       name: 'ChangePassword',
       component: () => import('@/views/info/changePassword/index'),
@@ -94,13 +94,13 @@ export const constantRoutes = [{
     },
     children: [{
       path: '/department/addresslist',
-        name: 'AddressList',
-        component: () => import('@/views/department/addressList/index'),
-        meta: {
-          title: '通讯录',
-          icon: 'dashboard'
-        },
-    },{
+      name: 'AddressList',
+      component: () => import('@/views/department/addressList/index'),
+      meta: {
+        title: '通讯录',
+        icon: 'dashboard'
+      },
+    }, {
       path: '/department/staff',
       name: 'Staff',
       component: () => import('@/views/department/staff/index'),
@@ -109,7 +109,7 @@ export const constantRoutes = [{
         icon: 'dashboard'
       },
     }]
-  },{
+  }, {
     path: '/attendance',
     component: Layout,
     redirect: '/attendance/clock',
@@ -120,13 +120,13 @@ export const constantRoutes = [{
     },
     children: [{
       path: '/attendance/clock',
-        name: 'Clock',
-        component: () => import('@/views/attendance/clock/index'),
-        meta: {
-          title: '打卡',
-          icon: 'dashboard'
-        },
-    },{
+      name: 'Clock',
+      component: () => import('@/views/attendance/clock/index'),
+      meta: {
+        title: '打卡',
+        icon: 'dashboard'
+      },
+    }, {
       path: '/attendance/record',
       name: 'Record',
       component: () => import('@/views/attendance/record/index'),
@@ -134,7 +134,7 @@ export const constantRoutes = [{
         title: '考勤记录',
         icon: 'dashboard'
       },
-    },{
+    }, {
       path: '/attendance/calendar',
       name: 'Calendar',
       component: () => import('@/views/attendance/calendar/index'),
@@ -142,7 +142,7 @@ export const constantRoutes = [{
         title: '年历',
         icon: 'dashboard'
       },
-    },{
+    }, {
       path: '/attendance/balance',
       name: 'Balance',
       component: () => import('@/views/attendance/balance/index'),
@@ -150,7 +150,7 @@ export const constantRoutes = [{
         title: '假期余额',
         icon: 'dashboard'
       },
-    },{
+    }, {
       path: '/attendance/pay',
       name: 'Pay',
       component: () => import('@/views/attendance/pay/index'),
@@ -158,7 +158,7 @@ export const constantRoutes = [{
         title: '我的薪酬',
         icon: 'dashboard'
       },
-    },{
+    }, {
       path: '/attendance/assess',
       name: 'Assess',
       component: () => import('@/views/attendance/assess/index'),
@@ -166,7 +166,7 @@ export const constantRoutes = [{
         title: '奖罚考核',
         icon: 'dashboard'
       },
-    },{
+    }, {
       path: '/attendance/apply',
       name: 'Apply',
       component: () => import('@/views/attendance/apply/index'),
@@ -174,7 +174,7 @@ export const constantRoutes = [{
         title: '请假申请',
         icon: 'dashboard'
       },
-    },{
+    }, {
       path: '/attendance/approve',
       name: 'Approve',
       component: () => import('@/views/attendance/approve/index'),
@@ -187,7 +187,7 @@ export const constantRoutes = [{
   {
     path: '/task',
     component: Layout,
-    redirect: '/task/mytask',
+    redirect: '/task/mytask/unfinished',
     name: 'Task',
     meta: {
       title: '任务',
@@ -195,22 +195,42 @@ export const constantRoutes = [{
     },
     children: [{
       path: '/task/mytask',
-        name: 'Mytask',
-        component: () => import('@/views/task/mytask/index'),
-        meta: {
-          title: '我的任务',
-          icon: 'dashboard'
+      redirect: '/task/mytask/unfinished',
+      name: 'Mytask',
+      component: () => import('@/views/task/mytask/index'),
+      meta: {
+        title: '我的任务',
+        icon: 'dashboard'
+      },
+      children: [{
+          path: '/task/mytask/unfinished',
+          name: 'Unfinished',
+          component: () => import('@/views/task/mytask/unfinished/index'),
+          meta: {
+            title: '未完成任务',
+            icon: 'dashboard'
+          },
         },
-    },{
+        {
+          path: '/task/mytask/finished',
+          name: 'Finished',
+          component: () => import('@/views/task/mytask/finished/index'),
+          meta: {
+            title: '已完成任务',
+            icon: 'dashboard'
+          },
+        }
+      ]
+    }, {
       path: '/task/release',
       name: 'Release',
       component: () => import('@/views/task/release/index'),
       meta: {
-        title: '我的下属',
+        title: '发布任务',
         icon: 'dashboard'
       },
     }]
-  },{
+  }, {
     path: '/file',
     component: Layout,
     redirect: '/flie/down',
@@ -221,13 +241,13 @@ export const constantRoutes = [{
     },
     children: [{
       path: '/file/down',
-        name: 'Down',
-        component: () => import('@/views/file/down/index'),
-        meta: {
-          title: '查看下载',
-          icon: 'dashboard'
-        },
-    },{
+      name: 'Down',
+      component: () => import('@/views/file/down/index'),
+      meta: {
+        title: '查看下载',
+        icon: 'dashboard'
+      },
+    }, {
       path: '/file/upload',
       name: 'Upload',
       component: () => import('@/views/file/upload/index'),
@@ -243,19 +263,27 @@ export const constantRoutes = [{
     component: Layout,
     redirect: '/example/table',
     name: 'Example',
-    meta: { title: 'Example', icon: 'el-icon-s-help' },
-    children: [
-      {
+    meta: {
+      title: 'Example',
+      icon: 'el-icon-s-help'
+    },
+    children: [{
         path: 'table',
         name: 'Table',
         component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        meta: {
+          title: 'Table',
+          icon: 'table'
+        }
       },
       {
         path: 'tree',
         name: 'Tree',
         component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        meta: {
+          title: 'Tree',
+          icon: 'tree'
+        }
       }
     ]
   },
@@ -263,14 +291,15 @@ export const constantRoutes = [{
   {
     path: '/form',
     component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
+    children: [{
+      path: 'index',
+      name: 'Form',
+      component: () => import('@/views/form/index'),
+      meta: {
+        title: 'Form',
+        icon: 'form'
       }
-    ]
+    }]
   },
 
   {
