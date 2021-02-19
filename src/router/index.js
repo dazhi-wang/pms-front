@@ -222,13 +222,33 @@ export const constantRoutes = [{
         }
       ]
     }, {
-      path: '/task/release',
-      name: 'Release',
-      component: () => import('@/views/task/release/index'),
+      path: '/task/releaseTask',
+      redirect: '/task/releaseTask/release',
+      name: 'ReleaseTask',
+      component: () => import('@/views/task/releaseTask/index'),
       meta: {
         title: '发布任务',
         icon: 'dashboard'
       },
+      children: [{
+          path: '/task/releaseTask/release',
+          name: 'Release',
+          component: () => import('@/views/task/releaseTask/release/index'),
+          meta: {
+            title: '发布',
+            icon: 'dashboard'
+          },
+        },
+        {
+          path: '/task/releaseTask/released',
+          name: 'Released',
+          component: () => import('@/views/task/releaseTask/released/index'),
+          meta: {
+            title: '我发布的任务',
+            icon: 'dashboard'
+          },
+        }
+      ]
     }]
   }, {
     path: '/file',
