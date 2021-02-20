@@ -7,8 +7,8 @@
           星期{{ day }}
           {{ time }}
         </p>
-        <el-button type="text" v-show="workInbut" @click="clockIn">上班打卡</el-button>
-        <el-button type="text" v-show="workOutbut" @click="clockOut">下班打卡</el-button>
+        <el-button class="clockbut" type="text" v-show="workInbut" @click="clockIn">上班打卡</el-button>
+        <el-button class="clockbut" type="text" v-show="workOutbut" @click="clockOut">下班打卡</el-button>
       </div>
     </div>
     
@@ -16,11 +16,13 @@
     <div class="c-list">
       <div class="l-left">
         <el-table :data="tableData" :row-class-name="tableRowClassName" style="width: 100%">
-          <el-table-column prop="date" label="日期" width="180">
+          <el-table-column prop="date" label="日期" width="150">
           </el-table-column>
-          <el-table-column prop="name" label="姓名" width="180">
+          <el-table-column prop="name" label="姓名" width="150">
           </el-table-column>
           <el-table-column prop="time" label="打卡时间">
+          </el-table-column>
+          <el-table-column label="打卡地点">
           </el-table-column>
           <el-table-column prop="state" label="打卡状态" width="100">
           </el-table-column>
@@ -29,7 +31,11 @@
         </el-table>
       </div>
       <div class="l-right">
-
+        <p class="lr-title">今日工作时长</p>
+        <div class="lr-down">
+          <p class="p1">5.5</p>
+          <p class="p2">小时</p>
+        </div>
       </div>
     </div>
   </div>
@@ -148,13 +154,13 @@
       // 自动计时
       autoMove() {
         this.timer = setInterval(() => {
-          this.date = new Date();
-          this.year = icnow.getFullYear();
-          this.month = icnow.getMonth() + 1;
-          this.date = icnow.getDate();
-          this.day = days[icnow.getDay()];
-          this.time = icnow.toTimeString().substring(0, 8);
-        }, 1000);
+          let nowdata = new Date()
+          this.year = nowdata.getFullYear()
+          this.month = nowdata.getMonth() + 1
+          this.date = nowdata.getDate()
+          this.day = days[nowdata.getDay()]
+          this.time = nowdata.toTimeString().substring(0, 8)
+        }, 1000)
       },
     },
     mounted() {
@@ -171,11 +177,17 @@
   .el-table .success-row {
     background: #f0f9eb;
   }
+  #clock .el-button--text {
+    color: #409EFF;
+    background: 0 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 20px;
+}.el-button+.el-button {
+    margin-left: 0;
+}
 </style>
 <style scope>
-  .c-up{
-    display: flex;
-  }
   .c-clock-green {
     width: 300px;
     height: 300px;
@@ -188,9 +200,9 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    position: relative;
     box-shadow: 0px 5px 20px rgb(124, 252, 0);
   }
-
   .c-clock-red {
     width: 300px;
     height: 300px;
@@ -203,26 +215,48 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    position: relative;
     box-shadow: 0px 5px 20px rgb(255, 75, 75);
   }
-
+  .clockbut{
+    position: absolute;
+    bottom: 20px;
+    left: calc(50% - 40px)
+  }
   .c-clock .text {
     height: 100px;
     font-size: 20px;
     font-weight: bold;
     color: rgba(0, 0, 0, 0.7);
   }
-
   .c-list {
     display: flex;
-
   }
-
   .l-left {
     width: 70%;
   }
-
   .l-right {
     width: 30%;
+  }
+  .lr-title{
+    width: 100%;
+    text-align: center;
+  }
+  .lr-down{
+    width: 100px;
+    margin: 20px auto;
+    text-align: center;
+  }
+  .lr-down .p1,
+  .lr-down .p2{
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
+  .lr-down .p1{
+    font-size: 25px;
+  }
+  .lr-down .p2{
+    font-size: 18px;
   }
 </style>
