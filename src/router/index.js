@@ -152,12 +152,38 @@ export const constantRoutes = [{
       },
     }, {
       path: '/attendance/pay',
+      redirect: '/attendance/pay/monthly',
       name: 'Pay',
       component: () => import('@/views/attendance/pay/index'),
       meta: {
         title: '我的薪酬',
         icon: 'dashboard'
       },
+      children: [{
+        path: '/attendance/pay/monthly',
+        name: 'monthly',
+        component: () => import('@/views/attendance/pay/monthly/index'),
+        meta: {
+          title: '当月工资',
+          icon: 'dashboard'
+        },
+      },{
+        path: '/attendance/pay/history',
+        name: 'history',
+        component: () => import('@/views/attendance/pay/history/index'),
+        meta: {
+          title: '历史工资',
+          icon: 'dashboard'
+        },
+      },{
+        path: '/attendance/pay/paylist',
+        name: 'paylist',
+        component: () => import('@/views/attendance/pay/paylist/index'),
+        meta: {
+          title: '历史工资列表',
+          icon: 'dashboard'
+        }
+      }]
     }, {
       path: '/attendance/assess',
       name: 'Assess',
