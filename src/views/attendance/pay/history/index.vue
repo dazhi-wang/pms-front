@@ -1,9 +1,8 @@
 <template>
     <div class="p-history">
-        {{this.$route.params.userId}}
         <el-collapse v-model="activeNames" @change="handleChange">
             <el-collapse-item title="历史工资查询条件" name="1">
-                <div style="text-align: center;">
+                <div style="text-align: center; margin-top: 10px;">
                     <span style="margin: 0 10px;">查询时间</span>
                     <el-date-picker v-model="time" type="month" format="yyyy 年 MM 月"
                     value-format="yyyy-MM" @change="clicktime" placeholder="选择月">
@@ -11,7 +10,6 @@
                 </div>
             </el-collapse-item>
             <el-collapse-item title="历史工资查询" name="2">
-                <router-view></router-view>
                 <salaryDetail :historydata="historydata"></salaryDetail>
             </el-collapse-item>
         </el-collapse>
@@ -75,6 +73,3 @@
         }
     }
 </script>
-<style scoped>
-
-</style>

@@ -193,9 +193,9 @@ export const constantRoutes = [{
         icon: 'dashboard'
       },
     }, {
-      path: '/attendance/apply',
-      name: 'Apply',
-      component: () => import('@/views/attendance/apply/index'),
+      path: '/attendance/vacation',
+      name: 'Vacation',
+      component: () => import('@/views/attendance/vacation/index'),
       meta: {
         title: '请假申请',
         icon: 'dashboard'

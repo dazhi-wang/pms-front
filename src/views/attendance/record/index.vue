@@ -264,6 +264,9 @@
     .record-detail .form-item-but .el-form-item__content{
         margin: 0 !important;
     }
+    .main .el-button{
+    padding: 0;
+  }
 </style>
 <style scoped>
     

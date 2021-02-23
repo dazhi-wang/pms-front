@@ -54,13 +54,11 @@
     ul {
         margin: 0;
         padding: 0;
-
     }
 
     li {
         list-style: none;
     }
-
     .c-heard {
         margin-bottom: 20px;
     }

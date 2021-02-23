@@ -151,7 +151,7 @@
 
     .h-title {
         width: 100%;
-        margin: 0 0 10px 0;
+        margin: 0 0 30px 0;
         font-size: 20px;
         text-align: center;
     }
@@ -177,13 +177,17 @@
     .i-num {
         display: inline-block;
         margin: 0;
-        width: 50%;
+        /* width: 50%; */
     }
 
     .i-text {
+        margin-left: 5%;
         padding-left: 10%;
+        width: 40%;
     }
-
+.i-num{
+    width: 55%;
+}
     .m-item {
         background-color: #ffffff;
         border: 1px solid #e2e2e2;
