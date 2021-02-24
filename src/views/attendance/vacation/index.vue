@@ -44,7 +44,7 @@ export default {
 
 <style scoped>
 .vacation {
-  min-width: 1100px;
+  min-width: 800px;
 }
 </style>
 <style >
