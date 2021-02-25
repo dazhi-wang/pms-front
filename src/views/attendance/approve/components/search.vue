@@ -1,15 +1,25 @@
 <template>
   <div class="search">
-    <el-form :inline="true" :model="searchForm" ref="searchForm" label-width="100px" class="demo-form-inline" size="mini">
+    <el-form :inline="true" :model="searchForm" ref="searchForm" label-width="100px" class="demo-form-inline"
+      size="mini">
+
+      <el-form-item label="申请人">
+        <el-input v-model="searchForm.username" placeholder="请输入申请人"></el-input>
+      </el-form-item>
       <el-form-item label="休假类型">
         <el-select v-model="searchForm.type" placeholder="请选择">
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
           </el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="申请人">
-        <el-input v-model="searchForm.username" placeholder="请输入申请人"></el-input>
+      <el-form-item label="审批状态">
+        <el-select v-model="searchForm.state" placeholder="请选择">
+          <el-option value="未审批">未审批</el-option>
+          <el-option value="未通过">未通过</el-option>
+          <el-option value="已通过">已通过</el-option>
+        </el-select>
       </el-form-item>
+
       <el-form-item>
         <el-button type="primary" @click="submitForm('searchForm')">查询</el-button>
       </el-form-item>
@@ -32,6 +42,9 @@
         }, {
           value: '产假',
           label: '产假'
+        } ,{
+          value: '年假',
+          label: '年假'
         }, {
           value: '陪产假',
           label: '陪产假'
@@ -44,7 +57,8 @@
         }],
         searchForm: {
           type: '',
-          username: ''
+          username: '',
+          state: '',
         },
       }
     },
@@ -64,7 +78,7 @@
 </script>
 
 <style>
-  .search .el-form{
+  .search .el-form {
     margin: 0 auto;
   }
 </style>
@@ -74,5 +88,4 @@
     width: 100%;
     margin: 20px auto 0 auto;
   }
-  
 </style>

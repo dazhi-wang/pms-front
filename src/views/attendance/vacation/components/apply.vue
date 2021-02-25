@@ -63,6 +63,9 @@
         }, {
           value: '产假',
           label: '产假'
+        },{
+          value: '年假',
+          label: '年假'
         }, {
           value: '陪产假',
           label: '陪产假'

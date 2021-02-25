@@ -4,33 +4,32 @@
       <el-collapse-item title="休假申请" name="1">
         <apply></apply>
       </el-collapse-item>
-      <el-collapse-item title="休假申请记录" name="2">
+      <el-collapse-item title="假期余额" name="2">
+       <balance></balance>
+      </el-collapse-item>
+      <el-collapse-item title="休假申请记录" name="3">
         <search></search>
         <record></record>
       </el-collapse-item>
     </el-collapse>
-    <div class="apply">
-
-    </div>
-    <div class="leave-record">
-
-    </div>
   </div>
 
 </template>
 <script>
 import Apply from './components/apply'
+import Balance from './components/balance'
 import Record from './components/record'
 import Search from './components/search'
 export default {
   components: {
     Apply,
+    Balance,
     Record,
     Search
   },
   data() {
     return {
-      activeNames: ['1', '2']
+      activeNames: ['1']
     }
   },
   methods: {
