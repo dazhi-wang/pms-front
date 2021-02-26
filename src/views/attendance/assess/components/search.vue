@@ -78,7 +78,7 @@
 
 <style scoped>
   .search {
-    width: 50%;
+    width: 100%;
     text-align: center;
     margin: 20px auto 0 auto;
   }

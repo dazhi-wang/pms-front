@@ -1,7 +1,8 @@
 <template>
   <div class="reward">
-    <el-form :model="ruleForm" :rules="rules1" ref="ruleForm" label-width="120px" class="demo-ruleForm">
-      <el-form-item label="姓名" prop="username" required>
+    <el-form :model="ruleForm" :rules="rules1" ref="ruleForm" label-width="120px" class="demo-ruleForm"size="small">
+      <div class="line">
+<el-form-item label="姓名" prop="username" required>
         <el-autocomplete popper-class="my-autocomplete" style="width: 100%;" v-model="ruleForm.username" :fetch-suggestions="querySearch" placeholder="请输入内容" clearable @select="handleSelect">
           <template slot-scope="{ item }">
             <div class="name">{{ item.value }}</div>
@@ -11,7 +12,9 @@
       <el-form-item label="工号" prop="userId" required>
         <el-input v-model="ruleForm.userId" placeholder="请输入工号"></el-input>
       </el-form-item>
-      <el-form-item label="奖罚类型" prop="type" required>
+      </div>
+      <div class="line">
+        <el-form-item label="奖罚类型" prop="type" required>
         <el-select v-model="ruleForm.type" placeholder="请选择" style="width:100%">
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
           </el-option>
@@ -20,13 +23,18 @@
       <el-form-item label="奖罚金额" prop="money" required>
         <el-input v-model="ruleForm.money" placeholder="请输入内容"></el-input>
       </el-form-item>
-      <el-form-item label="备注" prop="desc" required>
+      </div>
+      <div class="iline">
+        <el-form-item label="备注" prop="desc" required>
         <el-input type="textarea" v-model="ruleForm.desc"></el-input>
       </el-form-item>
+      </div>
+      <div class="iline">
       <el-form-item style="text-align: center;">
         <el-button type="primary" @click="submitForm('ruleForm')">发布</el-button>
         <el-button @click="resetForm('ruleForm')">重置</el-button>
       </el-form-item>
+      </div>
     </el-form>
   </div>
 </template>
@@ -133,17 +141,28 @@ export default {
   text-overflow: ellipsis;
   overflow: hidden;
 }
+.line .el-form-item{
+  width: 40%;
+  margin: 0;
+}
+.iline .el-form-item{
+  width: 80%;
+  margin: 0;
+  margin-left: 10%;
+}
 </style> 
 <style scoped>
 .reward {
+  width: 80%;
+  margin: 20px auto;
+}
+.line{
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+.iline{
   margin: 20px;
 }
-.demo-ruleForm {
-  width: 60%;
-  margin: 50px auto 0 auto;
-  border: 1px solid #dcdfe6;
-  border-radius: 20px;
-  padding: 90px 120px 30px 50px;
-  background-color: rgba(61, 57, 128, 0.2);
-}
+
 </style>

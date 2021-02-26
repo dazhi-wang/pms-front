@@ -38,36 +38,6 @@
       </el-table-column>
     </el-table>
 
-
-
-
-    <!-- <el-table class="el-table" :data="tableData"  style="width: 100%">
-      <el-table-column prop="username" label="姓名" min-width="10%">
-      </el-table-column>
-      <el-table-column prop="userId" label="工号" min-width="10%">
-      </el-table-column>
-      <el-table-column prop="statrtime" label="休假开始时间" min-width="10%">
-      </el-table-column>
-      <el-table-column prop="endtime" label="休假结束时间" min-width="10%">
-      </el-table-column>
-      <el-table-column prop="type" label="休假类型" min-width="10%">
-      </el-table-column>
-      <el-table-column prop="approver" label="审批人" min-width="10%">
-      </el-table-column>
-      <el-table-column prop="state" label="审批状态" min-width="10%">
-      </el-table-column>
-      <el-table-column prop="daynum" label="休假时长/(天)" min-width="10%">
-      </el-table-column>
-      <el-table-column prop="desc" label="休假原因" min-width="10%">
-      </el-table-column>
-      <el-table-column label="操作" min-width="10%">
-        <template slot-scope="scope">
-          <el-button type="text" @click=" detail(scope.row)">详细</el-button>
-          <el-button v-if="scope.row.state == '未审批'" type="text" @click=" change(scope.row)">修改</el-button>
-          <el-button v-if="scope.row.state == '已审批'" type="text" @click=" delete(scope.row)">删除</el-button>
-        </template>
-      </el-table-column>
-    </el-table> -->
     <el-dialog class="dialog" title="打卡详细" center :visible.sync="dialogDetails" top="20px" width="50%">
       <el-form :model="ruleForm" ref="ruleForm" label-width="120px" class="demo-ruleForm record-detail">
         <el-form-item label="姓名">
