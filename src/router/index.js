@@ -299,7 +299,8 @@ export const constantRoutes = [{
       component: () => import('@/views/file/upload/index'),
       meta: {
         title: '上传文件',
-        icon: 'dashboard'
+        icon: 'dashboard',
+        role: ['editor'],
       },
     }]
   },

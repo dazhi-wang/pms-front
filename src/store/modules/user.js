@@ -24,6 +24,9 @@ const mutations = {
   },
   SET_AVATAR: (state, avatar) => {
     state.avatar = avatar
+  },
+  SET_AVATAR: (state, roles) => {
+    state.roles = roles
   }
 }
 

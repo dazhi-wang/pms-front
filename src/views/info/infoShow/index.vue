@@ -49,21 +49,6 @@
         <el-input placeholder="暂无" v-model="signature" :readonly="useraut">
         </el-input>
       </div>
-      <!-- <div class="clearfix">
-        <span>昵称</span>
-        <span>很皮很天真°</span>
-        <span>
-          <input type="text" v-model="name" maxlength="30">
-        </span>
-        <span>
-          <textarea maxlength="50" cols="30" rows="2"></textarea>
-        </span>
-      </div>
-      <div class="clearfix">
-        <span>签名</span>
-        <span>无</span>
-      </div> -->
-
     </div>
     <div class="workInfo">
       <div :class="workInfoclass">
